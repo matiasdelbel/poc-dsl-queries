@@ -9,7 +9,6 @@ class ProjectModulePlugin : Plugin<Project> {
         .appendNext(next = ProGuardPlugin())
         .appendNext(next = JavaPlugin())
         .appendNext(next = TestPlugin())
-        .appendNext(next = CoveragePlugin())
 
     override fun apply(project: Project) = plugin.apply(project)
 }

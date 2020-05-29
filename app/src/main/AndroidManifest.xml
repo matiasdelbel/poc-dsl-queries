@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.delbel.poc.dsl.queries">
+    package="com.delbel.poc.dsl">
 
     <application
         android:name=".MainApplication"

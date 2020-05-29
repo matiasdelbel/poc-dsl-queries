@@ -28,8 +28,3 @@ dependencies {
 
     implementation("org.jacoco:org.jacoco.core:0.8.5")
 }
-
-sourceSets {
-    val main by getting
-    main.java.srcDirs("src/main/kotlin-ext")
-}

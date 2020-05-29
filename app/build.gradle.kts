@@ -1,5 +1,6 @@
 import deps.Injection
 import deps.Presentation
+import deps.Gateway
 
 plugins {
     id("com.android.application")
@@ -8,7 +9,7 @@ plugins {
 
 android {
 
-    defaultConfig.applicationId = "com.delbel.poc.dsl.queries"
+    defaultConfig.applicationId = "com.delbel.poc.dsl"
 
     viewBinding { isEnabled = true }
 }
@@ -16,9 +17,12 @@ android {
 dependencies {
     implementation(Injection.dagger)
     implementation(Injection.daggerSupport)
+
     kapt(Injection.daggerProcessor)
     kapt(Injection.daggerCompiler)
 
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
+
+    implementation(Gateway.room)
 }
