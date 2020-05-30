@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface PeopleDao {
 
     @Query("SELECT * FROM person")
-    fun obtainAll(): Flow<Person>
+    fun obtainAll(): Flow<List<Person>>
 
     @Insert(onConflict = REPLACE)
     fun insertAll(people: List<Person>)

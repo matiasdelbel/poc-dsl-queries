@@ -1,13 +1,17 @@
 package com.delbel.poc.dsl.view
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.delbel.poc.dsl.model.query.Age
 import com.delbel.poc.dsl.model.query.Name
 import com.delbel.poc.dsl.model.query.isAllowToDrink
 import com.delbel.poc.dsl.repository.PeopleRepository
 
-class PeopleViewModel(private val repository: PeopleRepository) {
+class PeopleViewModel(private val repository: PeopleRepository) : ViewModel() {
 
-    fun allCanDrink() = repository.update {
+    val people = repository.all().asLiveData()
+
+    fun everybodyCanDrink() = repository.update {
         set {
             isAllowToDrink { true }
         }
@@ -20,7 +24,7 @@ class PeopleViewModel(private val repository: PeopleRepository) {
         }
     }
 
-    fun onlyJohnDrinks() = repository.update {
+    fun onlyJohnCanDrink() = repository.update {
         where(Name isNot "John")
         set {
             isAllowToDrink { false }

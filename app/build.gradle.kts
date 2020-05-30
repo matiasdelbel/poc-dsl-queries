@@ -17,12 +17,17 @@ android {
 dependencies {
     implementation(Injection.dagger)
     implementation(Injection.daggerSupport)
+    implementation(Injection.daggerViewModel)
 
     kapt(Injection.daggerProcessor)
     kapt(Injection.daggerCompiler)
 
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
+    implementation(Presentation.constraintLayout)
+    implementation(Presentation.recyclerView)
+    implementation(Presentation.fragment)
+    implementation(Presentation.liveData)
 
     implementation(Gateway.room)
 }

@@ -1,5 +1,6 @@
 package com.delbel.poc.dsl.model
 
+import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,6 +10,6 @@ data class Person(
     @PrimaryKey val id: Int,
     val name: String,
     val age: Int,
-    @ColumnInfo(name = "can_drink")
-    val canDrink: Boolean
+    @ColumnInfo(name = "can_drink") val canDrink: Boolean,
+    @DrawableRes val avatar: Int
 )

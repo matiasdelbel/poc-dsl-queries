@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Template</string>
+
+    <string name="person_age">Age %1$d</string>
+
+    <string name="who_is_allow_to_drink">Who is allow to drink?</string>
+    <string name="everybody_drink">Everybody</string>
+    <string name="adults_drinks">Only Adults</string>
+    <string name="john_drinks">Only John</string>
 </resources>
