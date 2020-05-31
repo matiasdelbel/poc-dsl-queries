@@ -19,5 +19,5 @@ interface PeopleDao {
     fun insertAll(people: List<Person>)
 
     @RawQuery(observedEntities = [Person::class])
-    fun update(query: SupportSQLiteQuery)
+    fun update(query: SupportSQLiteQuery) : Person
 }

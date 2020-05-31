@@ -30,4 +30,5 @@ dependencies {
     implementation(Presentation.liveData)
 
     implementation(Gateway.room)
+    kapt(Gateway.roomCompiler)
 }

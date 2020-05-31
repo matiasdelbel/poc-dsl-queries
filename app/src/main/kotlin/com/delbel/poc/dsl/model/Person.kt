@@ -7,9 +7,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Person(
-    @PrimaryKey val id: Int,
     val name: String,
     val age: Int,
     @ColumnInfo(name = "can_drink") val canDrink: Boolean,
     @DrawableRes val avatar: Int
-)
+) {
+
+    @PrimaryKey
+    var id: Int = Int.MAX_VALUE
+}
