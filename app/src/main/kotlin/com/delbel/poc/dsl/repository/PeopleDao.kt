@@ -16,8 +16,8 @@ interface PeopleDao {
     fun obtainAll(): Flow<List<Person>>
 
     @Insert(onConflict = REPLACE)
-    fun insertAll(people: List<Person>)
+    suspend fun insertAll(people: List<Person>)
 
     @RawQuery(observedEntities = [Person::class])
-    fun update(query: SupportSQLiteQuery) : Person
+    suspend fun update(query: SupportSQLiteQuery) : Person
 }

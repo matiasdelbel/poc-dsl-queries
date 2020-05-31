@@ -2,11 +2,16 @@ package com.delbel.poc.dsl.repository
 
 import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.model.Person
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 internal class PeoplePreLoader @Inject constructor() {
 
-    fun loadPeople(dao: PeopleDao) = dao.insertAll(people = people)
+    private val scope = CoroutineScope(Dispatchers.Default)
+
+    fun loadPeople(dao: PeopleDao) = scope.launch { dao.insertAll(people = people) }
 
     companion object {
         private val people = listOf(

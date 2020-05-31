@@ -1,5 +1,6 @@
 package com.delbel.poc.dsl.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.databinding.ScreenPeopleBinding
 import com.delbel.poc.dsl.model.Person
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 class PeopleScreen : Fragment(R.layout.screen_people) {
@@ -19,6 +21,11 @@ class PeopleScreen : Fragment(R.layout.screen_people) {
 
     private lateinit var screenBinding: ScreenPeopleBinding
     private val adapter = PeopleAdapter()
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

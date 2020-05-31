@@ -13,6 +13,6 @@ data class Person(
     @DrawableRes val avatar: Int
 ) {
 
-    @PrimaryKey
-    var id: Int = Int.MAX_VALUE
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
 }

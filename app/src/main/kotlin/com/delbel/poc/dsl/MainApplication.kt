@@ -19,6 +19,7 @@ class MainApplication : Application(), HasAndroidInjector {
     override fun androidInjector() = androidInjector
 
     private fun injectDependencies() = DaggerMainComponent.builder()
+        .application(this)
         .build()
         .inject(application = this)
 }

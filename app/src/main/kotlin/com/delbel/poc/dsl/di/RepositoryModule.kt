@@ -8,7 +8,6 @@ import com.delbel.poc.dsl.repository.PeopleDatabase
 import com.delbel.poc.dsl.repository.PeoplePreLoader
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 internal class RepositoryModule {
@@ -18,7 +17,6 @@ internal class RepositoryModule {
     }
 
     @Provides
-    @Singleton
     fun provideDatabase(
         context: Application,
         peoplePreLoader: PeoplePreLoader
@@ -27,8 +25,9 @@ internal class RepositoryModule {
         val database = Room.databaseBuilder(context, PeopleDatabase::class.java, DATABASE_NAME)
             .addCallback(object : RoomDatabase.Callback() {
 
-                override fun onCreate(db: SupportSQLiteDatabase) =
+                override fun onCreate(db: SupportSQLiteDatabase) {
                     peoplePreLoader.loadPeople(dao = this@with.first().peopleDao())
+                }
             })
             .build()
         add(database)
