@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="listing_item_margin">8dp</dimen>
+
+    <dimen name="avatar_size">54dp</dimen>
+
+    <dimen name="normal_padding">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+</resources>

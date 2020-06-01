@@ -1,66 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/who_is_allow_to_drink" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="noScroll">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/everybody_drink"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/normal_padding"
+                android:text="@string/everybody_drink"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/adults_drinks"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/adults_drinks"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adults_drinks"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
+                app:layout_constraintLeft_toRightOf="@id/everybody_drink"
+                app:layout_constraintRight_toLeftOf="@id/john_drinks" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/john_drinks"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/john_drinks"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
+                app:layout_constraintLeft_toRightOf="@id/adults_drinks"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/people"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/who_is_allow_to_drink"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_person" />
 
-    <TextView
-        android:id="@+id/who_is_allow_to_drink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:text="@string/who_is_allow_to_drink"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        app:layout_constraintBottom_toTopOf="@id/everybody_drink"
-        app:layout_constraintLeft_toLeftOf="@id/everybody_drink" />
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintBottom_toBottomOf="@id/who_is_allow_to_drink"
-        app:layout_constraintRight_toRightOf="@id/john_drinks"
-        app:layout_constraintTop_toTopOf="@id/who_is_allow_to_drink" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/everybody_drink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/everybody_drink"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/adults_drinks" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/adults_drinks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/adults_drinks"
-        app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
-        app:layout_constraintLeft_toRightOf="@id/everybody_drink"
-        app:layout_constraintRight_toLeftOf="@id/john_drinks" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/john_drinks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/john_drinks"
-        app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
-        app:layout_constraintLeft_toRightOf="@id/adults_drinks"
-        app:layout_constraintRight_toRightOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

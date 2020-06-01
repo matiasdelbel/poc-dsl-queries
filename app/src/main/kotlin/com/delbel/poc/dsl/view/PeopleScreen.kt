@@ -2,7 +2,6 @@ package com.delbel.poc.dsl.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -38,15 +37,12 @@ class PeopleScreen : Fragment(R.layout.screen_people) {
         screenBinding = ScreenPeopleBinding.bind(requireView())
 
         screenBinding.people.adapter = adapter
-        screenBinding.loading.isVisible = true
+        screenBinding.people.addItemDecoration(MarginItemDecoration())
 
         screenBinding.everybodyDrink.setOnClickListener { viewModel.everybodyCanDrink() }
         screenBinding.adultsDrinks.setOnClickListener { viewModel.adultsCanDrink() }
         screenBinding.johnDrinks.setOnClickListener { viewModel.onlyJohnCanDrink() }
     }
 
-    private fun submitPeople(people: List<Person>) {
-        adapter.submitList(people)
-        screenBinding.loading.isVisible = false
-    }
+    private fun submitPeople(people: List<Person>) = adapter.submitList(people)
 }
