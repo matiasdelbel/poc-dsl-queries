@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
     tools:padding="@dimen/listing_item_margin">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -24,7 +25,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         app:layout_constraintBottom_toTopOf="@id/person_role"
         app:layout_constraintLeft_toRightOf="@id/person_avatar"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/person_avatar"
         tools:text="Claude" />
 
     <TextView

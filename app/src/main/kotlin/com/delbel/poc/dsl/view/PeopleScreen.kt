@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.databinding.ScreenPeopleBinding
 import com.delbel.poc.dsl.model.Person
@@ -22,7 +25,9 @@ class PeopleScreen : Fragment(R.layout.screen_people) {
     private val viewModel: PeopleViewModel by viewModels { viewModelFactory }
 
     private lateinit var screenBinding: ScreenPeopleBinding
-    private val adapter = PeopleAdapter()
+    private val adapter = PeopleAdapter {
+        findNavController().navigate(PeopleScreenDirections.toPerson(personId = it.id))
+    }
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -41,6 +46,7 @@ class PeopleScreen : Fragment(R.layout.screen_people) {
 
         screenBinding.people.adapter = adapter
         screenBinding.people.addItemDecoration(MarginItemDecoration())
+        screenBinding.people.addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
 
         screenBinding.doctors.setOnCheckedChangeListener { _, isChecked ->
             viewModel.updateDoctorsPermission(isAllow = isChecked)

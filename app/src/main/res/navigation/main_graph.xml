@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/people_screen">
+
+    <fragment
+        android:id="@+id/people_screen"
+        android:name="com.delbel.poc.dsl.view.PeopleScreen"
+        tools:layout="@layout/screen_people">
+
+        <action
+            android:id="@+id/to_person"
+            app:destination="@id/person_screen" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/person_screen"
+        android:name="com.delbel.poc.dsl.view.person.PersonScreen"
+        android:label="@string/profile_edition"
+        tools:layout="@layout/screen_person">
+
+        <argument
+            android:name="person_id"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

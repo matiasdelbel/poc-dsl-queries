@@ -11,13 +11,15 @@ import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.databinding.ItemPersonBinding
 import com.delbel.poc.dsl.model.Person
 
-class PeopleAdapter : ListAdapter<Person, PersonViewHolder>(PersonDiffCallback) {
+class PeopleAdapter(
+    private val listener: OnPersonSelected
+) : ListAdapter<Person, PersonViewHolder>(PersonDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         PersonViewHolder.createFrom(parent)
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) =
-        holder.bind(person = getItem(position))
+        holder.bind(person = getItem(position), listener = listener)
 
     private object PersonDiffCallback : DiffUtil.ItemCallback<Person>() {
 
@@ -39,9 +41,10 @@ class PersonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemPersonBinding.bind(itemView)
 
-    fun bind(person: Person) {
+    fun bind(person: Person, listener: OnPersonSelected) {
         val context = itemView.context
 
+        itemView.setOnClickListener { listener(person) }
         binding.personAvatar.setImageDrawable(ContextCompat.getDrawable(context, person.avatar))
         binding.personName.text = person.name
         binding.personAge.text = context.getString(R.string.person_age, person.age)
@@ -49,3 +52,5 @@ class PersonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.personIsAllow.isChecked = person.isAllowToEnter
     }
 }
+
+typealias OnPersonSelected = (Person) -> Unit

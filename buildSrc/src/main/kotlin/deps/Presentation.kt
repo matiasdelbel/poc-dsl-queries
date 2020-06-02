@@ -10,4 +10,11 @@ object Presentation {
 
     const val fragment = "androidx.fragment:fragment-ktx:1.2.4"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    const val savedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0"
+
+    const val assistedInjection = "com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2"
+    const val assistedInjectionCompiler = "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
+
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:2.2.1"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.2.1"
 }

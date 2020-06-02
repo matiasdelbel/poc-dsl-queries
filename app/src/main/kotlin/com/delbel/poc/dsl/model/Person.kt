@@ -18,4 +18,6 @@ data class Person(
 
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
+
+    fun with(name: String, age: Int) = copy(name = name, age = age).apply { id = this@Person.id }
 }

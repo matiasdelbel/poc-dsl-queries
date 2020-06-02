@@ -27,7 +27,12 @@ dependencies {
     implementation(Presentation.constraintLayout)
     implementation(Presentation.recyclerView)
     implementation(Presentation.fragment)
+    implementation(Presentation.savedState)
     implementation(Presentation.liveData)
+    implementation(Presentation.assistedInjection)
+    kapt(Presentation.assistedInjectionCompiler)
+    implementation(Presentation.navigationFragment)
+    implementation(Presentation.navigationUi)
 
     implementation(Gateway.room)
     kapt(Gateway.roomCompiler)

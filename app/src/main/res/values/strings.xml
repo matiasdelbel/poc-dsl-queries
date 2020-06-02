@@ -7,4 +7,11 @@
     <string name="doctors">Doctors</string>
     <string name="administrative">Administrative</string>
     <string name="cleanings">Cleanings</string>
+
+    <string name="profile_edition">Profile edition</string>
+    <string name="person_name_helper_text">Name</string>
+    <string name="person_name_error">Should have at least 3 characters.</string>
+    <string name="person_age_helper_text">Age</string>
+    <string name="person_age_error">Should be an adult</string>
+    <string name="save">Save</string>
 </resources>
