@@ -1,9 +1,7 @@
-package com.delbel.poc.dsl.view
+package com.delbel.poc.dsl.view.people
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.widget.AppCompatToggleButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer

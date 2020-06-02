@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.delbel.dagger.viewmodel.general.ViewModelKey
 import com.delbel.dagger.viewmodel.general.di.ViewModelFactoryModule
 import com.delbel.dagger.viewmodel.savedstate.ViewModelFactory
-import com.delbel.poc.dsl.view.PeopleScreen
-import com.delbel.poc.dsl.view.PeopleViewModel
+import com.delbel.poc.dsl.view.people.PeopleScreen
+import com.delbel.poc.dsl.view.people.PeopleViewModel
 import com.delbel.poc.dsl.view.person.PersonScreen
 import com.squareup.inject.assisted.dagger2.AssistedModule
 import dagger.Binds

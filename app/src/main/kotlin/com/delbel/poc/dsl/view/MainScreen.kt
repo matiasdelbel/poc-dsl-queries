@@ -1,4 +1,4 @@
-package com.delbel.poc.dsl
+package com.delbel.poc.dsl.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.databinding.ScreenMainBinding
 
 class MainScreen : AppCompatActivity() {

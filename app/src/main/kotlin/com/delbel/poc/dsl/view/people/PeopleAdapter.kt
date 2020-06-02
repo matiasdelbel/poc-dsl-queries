@@ -1,4 +1,4 @@
-package com.delbel.poc.dsl.view
+package com.delbel.poc.dsl.view.people
 
 import android.view.LayoutInflater.from
 import android.view.View

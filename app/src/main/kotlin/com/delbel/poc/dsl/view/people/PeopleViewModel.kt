@@ -1,4 +1,4 @@
-package com.delbel.poc.dsl.view
+package com.delbel.poc.dsl.view.people
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
