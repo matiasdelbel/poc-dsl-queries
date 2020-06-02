@@ -45,6 +45,7 @@ class PersonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.personAvatar.setImageDrawable(ContextCompat.getDrawable(context, person.avatar))
         binding.personName.text = person.name
         binding.personAge.text = context.getString(R.string.person_age, person.age)
-        binding.personIsAllow.isChecked = person.canDrink
+        binding.personRole.text = person.role.capitalize()
+        binding.personIsAllow.isChecked = person.isAllowToEnter
     }
 }

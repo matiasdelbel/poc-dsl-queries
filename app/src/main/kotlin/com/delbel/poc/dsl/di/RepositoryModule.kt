@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.delbel.poc.dsl.repository.PeopleDatabase
-import com.delbel.poc.dsl.repository.PeoplePreLoader
+import com.delbel.poc.dsl.repository.PeopleProvider
 import dagger.Module
 import dagger.Provides
 
@@ -19,14 +19,14 @@ internal class RepositoryModule {
     @Provides
     fun provideDatabase(
         context: Application,
-        peoplePreLoader: PeoplePreLoader
+        peopleProvider: PeopleProvider
     ): PeopleDatabase = with(mutableListOf<PeopleDatabase>()) {
 
         val database = Room.databaseBuilder(context, PeopleDatabase::class.java, DATABASE_NAME)
             .addCallback(object : RoomDatabase.Callback() {
 
                 override fun onCreate(db: SupportSQLiteDatabase) {
-                    peoplePreLoader.loadPeople(dao = this@with.first().peopleDao())
+                    peopleProvider.loadPeopleOn(dao = this@with.first().peopleDao())
                 }
             })
             .build()

@@ -15,45 +15,41 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/who_is_allow_to_drink" />
+            app:title="@string/who_is_allow_to_enter" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="noScroll">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/everybody_drink"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/doctors"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/normal_padding"
-                android:text="@string/everybody_drink"
-                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/doctors"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/adults_drinks"
+                app:layout_constraintRight_toLeftOf="@id/administrative"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/adults_drinks"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/administrative"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/adults_drinks"
-                android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
-                app:layout_constraintLeft_toRightOf="@id/everybody_drink"
-                app:layout_constraintRight_toLeftOf="@id/john_drinks" />
+                android:text="@string/administrative"
+                app:layout_constraintBaseline_toBaselineOf="@id/doctors"
+                app:layout_constraintLeft_toRightOf="@id/doctors"
+                app:layout_constraintRight_toLeftOf="@id/cleanings" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/john_drinks"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cleanings"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/john_drinks"
-                android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintBaseline_toBaselineOf="@id/everybody_drink"
-                app:layout_constraintLeft_toRightOf="@id/adults_drinks"
+                android:text="@string/cleanings"
+                app:layout_constraintBaseline_toBaselineOf="@id/doctors"
+                app:layout_constraintLeft_toRightOf="@id/administrative"
                 app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

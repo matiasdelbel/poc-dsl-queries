@@ -1,17 +1,18 @@
 package com.delbel.poc.dsl.repository
 
-import androidx.sqlite.db.SimpleSQLiteQuery
-import com.delbel.poc.dsl.statement.UpdateStatement
+import com.delbel.poc.dsl.model.Person
+import com.delbel.poc.dsl.model.PersonRole
 import javax.inject.Inject
 
 class PeopleRepository @Inject constructor(private val dao: PeopleDao) {
 
     fun all() = dao.obtainAll()
 
-    suspend fun update(statement: UpdateStatement.() -> Unit) {
-        val updateStatement = UpdateStatement().apply(statement)
-        val query = SimpleSQLiteQuery(updateStatement.sqlStatement())
+    fun obtainBy(id: Int) = dao.obtainBy(id)
 
-        dao.update(query)
-    }
+    suspend fun updateByRole(isAllow: Boolean, role: String) = dao.updateByRole(isAllow, role)
+
+    suspend fun updateRole(personRole: PersonRole) = dao.updateRole(personRole)
+
+    suspend fun updatePerson(person: Person) = dao.updatePerson(person)
 }

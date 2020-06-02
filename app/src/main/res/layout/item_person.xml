@@ -19,13 +19,23 @@
         android:id="@+id/person_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_padding"
-        android:layout_marginRight="@dimen/small_padding"
+        android:layout_marginLeft="@dimen/normal_padding"
+        android:layout_marginRight="@dimen/normal_padding"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        app:layout_constraintBottom_toTopOf="@id/person_age"
+        app:layout_constraintBottom_toTopOf="@id/person_role"
         app:layout_constraintLeft_toRightOf="@id/person_avatar"
-        app:layout_constraintTop_toTopOf="@id/person_avatar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Claude" />
+
+    <TextView
+        android:id="@+id/person_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:layout_constraintBottom_toTopOf="@id/person_age"
+        app:layout_constraintLeft_toLeftOf="@id/person_name"
+        app:layout_constraintTop_toBottomOf="@id/person_name"
+        tools:text="Doctor" />
 
     <TextView
         android:id="@+id/person_age"
@@ -34,7 +44,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/person_avatar"
         app:layout_constraintLeft_toLeftOf="@id/person_name"
-        app:layout_constraintTop_toBottomOf="@id/person_name"
+        app:layout_constraintTop_toBottomOf="@id/person_role"
         tools:text="@string/person_age" />
 
     <CheckBox

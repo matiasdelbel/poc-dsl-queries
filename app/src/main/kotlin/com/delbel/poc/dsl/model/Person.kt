@@ -5,12 +5,15 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "people")
 data class Person(
     val name: String,
     val age: Int,
-    @ColumnInfo(name = "can_drink") val canDrink: Boolean,
-    @DrawableRes val avatar: Int
+    val role: String,
+    @ColumnInfo(name = "is_allow")
+    val isAllowToEnter: Boolean,
+    @DrawableRes
+    val avatar: Int
 ) {
 
     @PrimaryKey(autoGenerate = true)
