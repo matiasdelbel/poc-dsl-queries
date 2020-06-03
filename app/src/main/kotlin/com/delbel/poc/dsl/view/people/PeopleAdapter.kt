@@ -49,7 +49,7 @@ class PersonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         binding.personName.text = person.name
         binding.personAge.text = context.getString(R.string.person_age, person.age)
-        binding.personRole.text = person.role.capitalize()
+        binding.personRole.text = person.role.value.capitalize()
 
         binding.personIsAllow.setOnCheckedChangeListener(null)
         binding.personIsAllow.isChecked = person.isAllowToEnter

@@ -29,27 +29,27 @@
                 android:layout_height="wrap_content"
                 android:text="@string/doctors"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/administrative"
+                app:layout_constraintRight_toLeftOf="@id/dentists"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/administrative"
+                android:id="@+id/dentists"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/administrative"
+                android:text="@string/dentists"
                 app:layout_constraintBaseline_toBaselineOf="@id/doctors"
                 app:layout_constraintLeft_toRightOf="@id/doctors"
-                app:layout_constraintRight_toLeftOf="@id/cleanings" />
+                app:layout_constraintRight_toLeftOf="@id/nurses" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/cleanings"
+                android:id="@+id/nurses"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cleanings"
+                android:text="@string/nurses"
                 app:layout_constraintBaseline_toBaselineOf="@id/doctors"
-                app:layout_constraintLeft_toRightOf="@id/administrative"
+                app:layout_constraintLeft_toRightOf="@id/dentists"
                 app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

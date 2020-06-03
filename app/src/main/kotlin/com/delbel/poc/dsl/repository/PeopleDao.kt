@@ -7,6 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.delbel.poc.dsl.model.Person
 import com.delbel.poc.dsl.model.PersonPermission
+import com.delbel.poc.dsl.model.Role
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -22,7 +23,7 @@ interface PeopleDao {
     fun obtainBy(id: Int): Flow<Person>
 
     @Query("UPDATE people SET is_allow = :is_allow WHERE role = :role")
-    suspend fun updateByRole(is_allow: Boolean, role: String)
+    suspend fun updateByRole(is_allow: Boolean, role: Role)
 
     @Update(entity = Person::class)
     suspend fun updatePermission(permission: PersonPermission)

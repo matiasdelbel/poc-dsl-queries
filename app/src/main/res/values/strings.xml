@@ -5,8 +5,8 @@
 
     <string name="who_is_allow_to_enter">Who is allow to enter?</string>
     <string name="doctors">Doctors</string>
-    <string name="administrative">Administrative</string>
-    <string name="cleanings">Cleanings</string>
+    <string name="dentists">Dentists</string>
+    <string name="nurses">Nurses</string>
 
     <string name="profile_edition">Profile edition</string>
     <string name="person_name_helper_text">Name</string>

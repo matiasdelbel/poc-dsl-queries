@@ -2,7 +2,6 @@ package com.delbel.poc.dsl.view.people
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.CompoundButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +12,8 @@ import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import com.delbel.poc.dsl.R
 import com.delbel.poc.dsl.databinding.ScreenPeopleBinding
 import com.delbel.poc.dsl.model.Person
+import com.delbel.poc.dsl.model.Role
+import com.delbel.poc.dsl.model.Role.*
 import com.google.android.material.chip.Chip
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -60,12 +61,12 @@ class PeopleScreen : Fragment(R.layout.screen_people) {
         adapter.submitList(people)
         screenBinding.people.smoothScrollToPosition(0)
 
-        changeChecked(total = people, role = "doctor", view = screenBinding.doctors)
-        changeChecked(total = people, role = "administrative", view = screenBinding.administrative)
-        changeChecked(total = people, role = "cleaning", view = screenBinding.cleanings)
+        changeChecked(total = people, role = DOCTOR, view = screenBinding.doctors)
+        changeChecked(total = people, role = DENTIST, view = screenBinding.dentists)
+        changeChecked(total = people, role = NURSE, view = screenBinding.nurses)
     }
 
-    private fun changeChecked(total: List<Person>, role: String, view: Chip) {
+    private fun changeChecked(total: List<Person>, role: Role, view: Chip) {
         val subTotal = total.filter { it.role == role }
         val allowSubTotal = subTotal.filter { it.isAllowToEnter }
 

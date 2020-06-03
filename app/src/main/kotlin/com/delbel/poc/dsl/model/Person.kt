@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class Person(
     val name: String,
     val age: Int,
-    val role: String,
+    val role: Role,
     @ColumnInfo(name = "is_allow")
     val isAllowToEnter: Boolean,
     @DrawableRes

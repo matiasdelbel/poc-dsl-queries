@@ -5,6 +5,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.delbel.poc.dsl.model.Person
 import com.delbel.poc.dsl.model.PersonPermission
+import com.delbel.poc.dsl.model.Role
 import com.delbel.poc.dsl.repository.PeopleRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -13,7 +14,7 @@ class PeopleViewModel @Inject constructor(private val repository: PeopleReposito
 
     val people = repository.all().asLiveData()
 
-    fun updatePeoplePermission(role: String, isAllow: Boolean) = viewModelScope.launch {
+    fun updatePeoplePermission(role: Role, isAllow: Boolean) = viewModelScope.launch {
         repository.updateByRole(isAllow = isAllow, role = role)
     }
 
