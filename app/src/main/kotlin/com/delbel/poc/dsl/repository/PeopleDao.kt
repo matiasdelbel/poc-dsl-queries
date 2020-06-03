@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import androidx.room.Update
 import com.delbel.poc.dsl.model.Person
-import com.delbel.poc.dsl.model.PersonRole
+import com.delbel.poc.dsl.model.PersonPermission
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -25,7 +25,7 @@ interface PeopleDao {
     suspend fun updateByRole(is_allow: Boolean, role: String)
 
     @Update(entity = Person::class)
-    suspend fun updateRole(person: PersonRole)
+    suspend fun updatePermission(permission: PersonPermission)
 
     @Update
     suspend fun updatePerson(person: Person)

@@ -44,13 +44,22 @@ class PersonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(person: Person, listener: OnPersonSelected) {
         val context = itemView.context
 
-        itemView.setOnClickListener { listener(person) }
+        itemView.setOnClickListener { listener.onPersonSelected(person) }
         binding.personAvatar.setImageDrawable(ContextCompat.getDrawable(context, person.avatar))
+
         binding.personName.text = person.name
         binding.personAge.text = context.getString(R.string.person_age, person.age)
         binding.personRole.text = person.role.capitalize()
+
+        binding.personIsAllow.setOnCheckedChangeListener(null)
         binding.personIsAllow.isChecked = person.isAllowToEnter
+        binding.personIsAllow.setOnCheckedChangeListener { _, isChecked -> listener.onPersonIsAllowChanged(person, isAllow = isChecked) }
     }
 }
 
-typealias OnPersonSelected = (Person) -> Unit
+interface OnPersonSelected {
+
+    fun onPersonSelected(person: Person)
+
+    fun onPersonIsAllowChanged(person: Person, isAllow: Boolean)
+}
