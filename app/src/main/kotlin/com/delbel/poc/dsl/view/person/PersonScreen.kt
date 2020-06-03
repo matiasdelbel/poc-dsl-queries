@@ -69,8 +69,8 @@ class PersonScreen : Fragment(R.layout.screen_person) {
     }
 
     private fun setUpValidStatus() {
-        screenBinding.personName.error = ""
-        screenBinding.personAge.error = ""
+        screenBinding.personName.helperText = getString(R.string.person_name_helper_text)
+        screenBinding.personAge.helperText = getString(R.string.person_age_helper_text)
         screenBinding.savePerson.isEnabled = true
     }
 }
